@@ -1,0 +1,420 @@
+/* Genel Stil Ayarları */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #2C3E50; /* Daha şık ve derin bir renk */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px 0; /* Daha geniş üst ve alt padding */
+  border-radius: 0 0 15px 15px; /* Alt köşelere yuvarlaklık ekleyelim */
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out; /* Hover efekti */
+}
+
+.navbar:hover {
+  transform: translateY(-3px); /* Hoverda navbar hafif yukarı kayar */
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 30px; /* Her item arasına biraz daha boşluk ekledik */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif; /* Yazı tipini değiştirdik */
+  padding: 10px 20px; /* Buton benzeri bir etki için padding ekledik */
+  border-radius: 25px; /* Yumuşak köşeler için border-radius */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Hover efektleri */
+}
+
+/* Hover Efekti */
+.nav-links a:hover {
+  background-color: #E74C3C; /* Hoverda kırmızımsı bir renk */
+  color: white; /* Metin rengi beyaz olsun */
+  transform: scale(1.1); /* Hoverda buton biraz büyür */
+}
+
+/* Navbarda aktif olan link için stil */
+.nav-links a.active {
+  background-color: #2980B9;
+  color: white;
+  font-weight: bold;
+}
+
+/* Hero (Resim ve Tanıtım) Bölümü */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 70px; /* Navbar sabit olduğu için üstten boşluk ekliyoruz */
+  padding: 30px 0;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.hero-image-container {
+  flex: 1;
+  padding-right: 30px;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.intro-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.intro-text h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* İkinci Resim ve Bilgi Bölümü */
+.second-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding: 30px 0;
+}
+
+.second-info-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.hero-image-container.right {
+  order: 1; /* Resmi sağ tarafa al */
+  padding-left: 30px;
+  padding-right: 0;
+}
+
+.info-text {
+  flex: 1;
+  max-width: 600px;
+  padding-left: 30px;
+}
+
+.info-text h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.info-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Hakkımızda Sayfası Özel Tasarımı */
+.about-background {
+  background-image: url('images/balıkçı3.jpg'); /* Arka plan resmi */
+  background-size: cover; /* Resim, arka plana tamamen oturacak */
+  background-repeat: no-repeat; /* Tekrar etmesini engeller */
+  background-position: center; /* Görseli merkeze hizalar */
+  height: 100vh; /* Görselin tam ekran yüksekliğinde olmasını sağlar */
+  position: relative;
+  margin-top: 20px; /* Navbar'dan sonra bir boşluk bırak */
+}
+
+.about-overlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Şeffaf siyah bir katman */
+  color: white;
+  height: 100%; /* Katmanın tam ekranı kaplamasını sağlar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Yazıya hafif bir gölge efekti */
+}
+
+.site-purpose {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* Yazıya hafif bir gölge efekti */
+  background-color: rgba(255, 255, 255, 0.1); /* Yazının arkasında hafif bir şeffaf beyaz arka plan */
+  padding: 15px 20px;
+  border-radius: 15px;
+}
+
+/* Balık Türleri Sayfası Genel Ayarları */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Balık Türleri Sayfası Genel Ayarları */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Balık Türleri Alanı */
+.species {
+  padding: 100px 20px 50px 20px; /* Navbar'dan dolayı üst boşluk ekledik */
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.species-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Balık Kartı */
+.species-card {
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.species-card:hover {
+  transform: translateY(-10px); /* Hoverda kart hafif yukarı kayar */
+}
+
+.species-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.species-card h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.species-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add margin-top to create space between navbar and slideshow */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: 50px auto; /* Create space between navbar and slideshow */
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust the size of images to ensure the 4th one is visible */
+.mySlides img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure images cover the entire container */
+}
+
+
+/* Genel ayarlar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;  /* Slaytın genişliğini 800px yapalım */
+  position: relative;
+  margin: auto;
+  overflow: hidden; /* Slaytın dışına taşan kısmı gizler */
+}
+
+/* Slaytlar (gizlenmiş) */
+.mySlides {
+  display: none;
+  width: 100%;  /* Slaytların genişliği container'a uyacak şekilde ayarlanır */
+  height: auto;  /* Yükseklik orantılı olarak ayarlanır */
+}
+
+/* Resimlere yönelik stil */
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;  /* Resmi, kapsayıcıya uygun şekilde kesmeden yerleştirir */
+}
+
+/* Slaytların üzerine yazı */
+.text {
+  color: #f2f2f2;
+  font-size: 20px;  /* Yazı boyutunu biraz büyütüyoruz */
+  padding: 8px 12px;
+  position: absolute;
+  top: 50%;  /* Yatayda ortalamak için %50 */
+  left: 50%;  /* Dikeyde ortalamak için %50 */
+  transform: translate(-50%, -50%);  /* Gerçekten tam ortalamak için translate kullanılıyor */
+  text-align: center;
+  width: 80%;  /* Yazının genişliğini biraz daraltıyoruz */
+}
+
+/* Previous & Next butonları */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* "Next" butonunu sağa yerleştirme */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Hover efekti */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots (göstergeler) */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fade animasyonu */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+/* Fade animasyonu tanımı */
+@keyframes fade {
+  from { opacity: .4 }
+  to { opacity: 1 }
+}
+
+/* Küçük ekranlar için yazı boyutunu ayarlama */
+@media only screen and (max-width: 600px) {
+  .text {
+    font-size: 14px;  /* Küçük ekranlar için yazı boyutunu küçültüyoruz */
+  }
+
+  .slideshow-container {
+    max-width: 100%;  /* Ekranın boyutuna göre genişliği tam yapıyoruz */
+  }
+}
+

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 70px; /* Navbar'ın yüksekliğine göre içerik başlangıcını ayarlayın */
+}
+
+.navbar {
+    background: #2C3E50;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;  /* Navbar'ı sabit yapıyoruz */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;  /* Navbar'ın üstte olmasını sağlıyoruz */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.page-header {
+    text-align: center;
+    padding: 20px 0;
+    background: #f4f4f4;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    margin-top: 50px; /* Sayfa içeriğinin navbar altında kaymasını sağlar */
+}
+
+.contact-form-section,
+.contact-info-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.contact-info ul li strong {
+    display: inline-block;
+    width: 80px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li><a href="species.html">Balık Türleri</a></li>
+                <li><a href="contact.html" class="active">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- İletişim Başlık -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Bizimle İletişime Geçin</h1>
+            <p>Herhangi bir sorunuz veya geri bildiriminiz için bizimle iletişime geçmekten çekinmeyin!</p>
+        </div>
+    </header>
+
+    <!-- İletişim İçeriği -->
+    <section class="contact-content">
+        <div class="contact-form-section">
+            <!-- İletişim Formu -->
+            <form action="submit_form.php" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Adınız</label>
+                    <input type="text" id="name" name="name" placeholder="Adınızı Giriniz" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" placeholder="E-posta Adresinizi Giriniz" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız</label>
+                    <textarea id="message" name="message" placeholder="Mesajınızı Yazınız" rows="5" required></textarea>
+                </div>
+                <button type="submit">Gönder</button>
+            </form>
+        </div>
+
+        <div class="contact-info-section">
+            <!-- İletişim Bilgileri -->
+            <h3>İletişim Bilgileri</h3>
+            <ul class="contact-info">
+                <li><strong>Adres:</strong> İzmir, Türkiye</li>
+                <li><strong>Telefon:</strong> +90 555 123 45 67</li>
+                <li><strong>E-posta:</strong> info@balikcilik.com</li>
+            </ul>
+            <!-- Sosyal Medya -->
+            <h3>Bizi Takip Edin</h3>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Balıkçılık Bilgilendirme | Tüm Hakları Saklıdır</p>
+        </div>
+    </footer>
+
+</body>
+</html>
