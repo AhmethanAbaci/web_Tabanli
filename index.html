@@ -5,7 +5,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balıkçılık ve Balık Türleri</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Genel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Navbar öğelerini yatay olarak aralıklı hizalar */
+            align-items: center;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            padding-left: 0;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links li a:hover,
+        .navbar .nav-links li a.active {
+            color: #00ffff;
+        }
+
+        .navbar .logo {
+            height: 50px; /* Logo boyutunu ayarlayın */
+            width: auto;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .mySlides {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video container */
+        .mySlides video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ekranı tamamen dolduracak şekilde video */
+        }
+
+        /* Slayt Altı Tanıtım */
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+        }
+
+        /* Dots */
+        .dot-container {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 15px;
+        }
+
+        .dot {
+            height: 20px;
+            width: 20px;
+            background-color: #bbb;
+            border-radius: 50%;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Mobil Görünüm - Navbar öğelerini dikey hizala */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: row; /* Navbar öğelerini yatay hizalar */
+                justify-content: space-between; /* Öğeler arasında boşluk bırakır */
+            }
+
+            .navbar .nav-links {
+                flex-direction: row; /* Linkleri yatay sıralar */
+                gap: 10px;
+                padding-left: 0;
+                flex-wrap: wrap; /* Linklerin taşmaması için wrap kullanılır */
+            }
+
+            .navbar .nav-links li a {
+                font-size: 16px; /* Mobilde daha küçük font boyutu */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -13,8 +165,10 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
+            <!-- Logo kısmı -->
+            <a href="index.html"><img src="images/hobi balik-Photoroom.png" alt="Logo" class="logo"></a>
             <ul class="nav-links">
-                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="index.html" class="active">Anasayfa</a></li>
                 <li><a href="about.html">Hakkımızda</a></li>
                 <li><a href="species.html">Balık Türleri</a></li>
                 <li><a href="contact.html">İletişim</a></li>
@@ -22,69 +176,39 @@
         </div>
     </nav>
 
-    <!-- Slideshow container -->
     <div class="slideshow-container">
-
         <!-- Slide 1 -->
         <div class="mySlides fade">
-            <div class="numbertext">1 / 4</div>
-            <img src="images/balıkçı.jpg" style="width:100%" alt="Balıkçılık">
-            <div class="text">
-                <h2>Balıkçılık ve Deniz Yaşamı</h2>
-                <p>Türk denizleri, sahip olduğu zengin balık çeşitliliğiyle dünyada önemli bir yer tutmaktadır. Ege ve
-                    Akdeniz gibi denizler, çok sayıda ekonomik değeri olan balık türlerine ev sahipliği yapmaktadır.</p>
-                <p>Denizlerimizin korunması ve balıkçılıkla ilgili doğru uygulamalar sayesinde, hem deniz yaşamını
-                    koruyabiliriz hem de gelecek nesillere zengin deniz ürünleri sunabiliriz.</p>
-            </div>
+            <video autoplay muted loop>
+                <source src="https://videos.pexels.com/video-files/4821102/4821102-sd_960_506_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="text">Balıkçılıkla ilgili her şey burada!</div>
         </div>
-
         <!-- Slide 2 -->
         <div class="mySlides fade">
-            <div class="numbertext">2 / 4</div>
-            <img src="images/balıkçı2.webp" style="width:100%" alt="Balık Türleri">
-            <div class="text">
-                <h2>Balık Türleri ve Yaşam Alanları</h2>
-                <p>Türk denizlerinde pek çok farklı balık türü bulunmaktadır. Ege ve Akdeniz gibi denizler, birbirinden
-                    farklı balık türlerine ev sahipliği yapar. Bu balık türlerinin her biri, kendine özgü yaşam
-                    alanları, beslenme alışkanlıkları ve üreme dönemleriyle dikkat çeker.</p>
-                <p>Balık türlerinin korunması için yerel yönetimler ve balıkçılar iş birliği yapmalıdır.</p>
-            </div>
+            <video autoplay muted loop>
+                <source src="https://videos.pexels.com/video-files/4830304/4830304-sd_960_506_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="text">Balıkçılar ve balık severler için bilgi dolu bir kaynak!</div>
         </div>
-
         <!-- Slide 3 -->
         <div class="mySlides fade">
-            <div class="numbertext">3 / 4</div>
-            <img src="images/balık5.jpg" style="width:100%" alt="Balık Türleri">
-            <div class="text">
-                <h2>Balık Türleri ve Yaşam Alanları</h2>
-                <p>Türk denizlerinde pek çok farklı balık türü bulunmaktadır. Ege ve Akdeniz gibi denizler, birbirinden
-                    farklı balık türlerine ev sahipliği yapar. Bu balık türlerinin her biri, kendine özgü yaşam
-                    alanları, beslenme alışkanlıkları ve üreme dönemleriyle dikkat çeker.</p>
-                <p>Balık türlerinin korunması için yerel yönetimler ve balıkçılar iş birliği yapmalıdır.</p>
-            </div>
+            <video autoplay muted loop>
+                <source src="https://videos.pexels.com/video-files/5545728/5545728-sd_640_360_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="text">Deniz ürünlerinin çeşitleri ve faydaları hakkında detaylı bilgi!</div>
         </div>
-
         <!-- Slide 4 -->
         <div class="mySlides fade">
-            <div class="numbertext">4 / 4</div>
-            <img src="images/balık6.jpg" style="width:100%" alt="Balık Çeşitleri">
-            <div class="text">
-                <h2>Balık Çeşitleri ve Korunması</h2>
-                <p>Türk denizlerinde, özellikle ekonomik değeri yüksek balık türlerinin korunması için çeşitli
-                    yasalar ve düzenlemeler bulunmaktadır.</p>
-            </div>
+            <video autoplay muted loop>
+                <source src="https://videos.pexels.com/video-files/4821115/4821115-sd_960_506_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="text">Ege, Akdeniz ve Karadeniz'in en popüler balıkları!</div>
         </div>
-
     </div>
 
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <br>
-
-    <!-- The dots/circles -->
-    <div style="text-align:center">
+    <!-- Dots (Videonun alt kısmında) -->
+    <div class="dot-container">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
@@ -98,7 +222,33 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 3000); // Her 3 saniyede bir video değişir
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+    </script>
 
 </body>
 

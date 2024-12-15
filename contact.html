@@ -1,156 +1,167 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>İletişim - Deniz Dünyası</title>
     <style>
-        body, html {
-    height: 100%;
-    margin: 0;
-}
+        /* Genel Ayarlar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 70px; /* Navbar'ın yüksekliğine göre içerik başlangıcını ayarlayın */
-}
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            width: 100%;
+            color: #333;
+        }
 
-.navbar {
-    background: #2C3E50;
-    color: #fff;
-    padding: 10px 0;
-    position: fixed;  /* Navbar'ı sabit yapıyoruz */
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;  /* Navbar'ın üstte olmasını sağlıyoruz */
-}
+        h1,
+        h2,
+        p {
+            margin: 0;
+        }
 
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-.navbar ul li {
-    margin: 0 15px;
-}
+        .navbar .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.navbar ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            padding-left: 0;
+        }
 
-.page-header {
-    text-align: center;
-    padding: 20px 0;
-    background: #f4f4f4;
-}
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
 
-.contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px 0;
-    margin-top: 50px; /* Sayfa içeriğinin navbar altında kaymasını sağlar */
-}
+        .navbar .nav-links li a:hover,
+        .navbar .nav-links li a.active {
+            color: #00ffff;
+        }
 
-.contact-form-section,
-.contact-info-section {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+        .navbar .logo {
+            height: 50px;
+            width: auto;
+        }
 
-.contact-form .form-group {
-    margin-bottom: 15px;
-}
+        /* İletişim Bilgileri */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
 
-.contact-form .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.9); /* Yarı saydam beyaz arka plan */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
 
-.contact-form .form-group input,
-.contact-form .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-.contact-form button {
-    width: 100%;
-    padding: 10px;
-    background: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .contact-info p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
+        }
 
-.contact-form button:hover {
-    background: #0056b3;
-}
+        .contact-info .phone,
+        .contact-info .email,
+        .contact-info .address {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
-.contact-info ul {
-    list-style: none;
-    padding: 0;
-}
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
 
-.contact-info ul li {
-    margin-bottom: 10px;
-    font-size: 16px;
-}
+            .navbar .nav-links {
+                flex-direction: row;
+                gap: 10px;
+                padding-left: 0;
+                flex-wrap: wrap;
+            }
 
-.contact-info ul li strong {
-    display: inline-block;
-    width: 80px;
-}
+            .navbar .nav-links li a {
+                font-size: 16px;
+            }
 
-.social-links {
-    margin-top: 20px;
-}
+            .contact-info h2 {
+                font-size: 28px;
+            }
 
-.social-links a {
-    display: inline-block;
-    margin-right: 10px;
-    text-decoration: none;
-    color: #007BFF;
-}
+            .contact-info p {
+                font-size: 16px;
+            }
+        }
 
-.social-links a:hover {
-    text-decoration: underline;
-}
+        @media (max-width: 480px) {
+            .contact-info h2 {
+                font-size: 24px;
+            }
 
-.footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #fff;
-}
+            .contact-info p {
+                font-size: 14px;
+            }
 
+            .contact-info .phone,
+            .contact-info .email,
+            .contact-info .address {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
-<body>
 
+<body>
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
+            <img src="images/hobi balik-Photoroom.png" alt="Logo" class="logo"> <!-- Logo Eklendi -->
             <ul class="nav-links">
                 <li><a href="index.html">Anasayfa</a></li>
                 <li><a href="about.html">Hakkımızda</a></li>
@@ -160,40 +171,16 @@
         </div>
     </nav>
 
-    <!-- İletişim Başlık -->
-    <header class="page-header">
-        <div class="container">
-            <h1>Bizimle İletişime Geçin</h1>
-            <p>Herhangi bir sorunuz veya geri bildiriminiz için bizimle iletişime geçmekten çekinmeyin!</p>
+    <!-- İletişim Bilgileri -->
+    <div class="contact-section">
+        <div class="contact-info">
+            <h2>Bizimle İletişime Geçin</h2>
+            <p>Deniz Dünyası ekibi olarak her türlü sorunuz için bizimle iletişime geçebilirsiniz.</p>
+            <p class="phone"><strong>Telefon:</strong> +90 123 456 7890</p>
+            <p class="email"><strong>E-posta:</strong> iletisim@denizdunyasi.com</p>
+            <p class="address"><strong>Adres:</strong> Deniz Mahallesi, 12345 İstiklal Caddesi, İstanbul, Türkiye</p>
         </div>
-    </header>
-
-   
-
-        <div class="contact-info-section">
-            <!-- İletişim Bilgileri -->
-            <h3>İletişim Bilgileri</h3>
-            <ul class="contact-info">
-                <li><strong>Adres:</strong> İzmir, Türkiye</li>
-                <li><strong>Telefon:</strong> +90 555 123 45 67</li>
-                <li><strong>E-posta:</strong> info@balikcilik.com</li>
-            </ul>
-            <!-- Sosyal Medya -->
-            <h3>Bizi Takip Edin</h3>
-            <ul class="social-links">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Balıkçılık Bilgilendirme | Tüm Hakları Saklıdır</p>
-        </div>
-    </footer>
-
+    </div>
 </body>
+
 </html>

@@ -1,21 +1,179 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balık Türleri - Balıkçılık ve Balık Türleri</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Genel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0A4D68;
+            height: 100%;
+            overflow-x: hidden;
+            background-image: url('https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            filter: contrast(1.4) brightness(1.2) saturate(1.5) sharpen(2px);
+            /* Daha fazla keskinlik */
+        }
+
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            /* Navbar öğelerini yatay olarak aralıklı hizalar */
+            align-items: center;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            padding-left: 0;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links li a:hover,
+        .navbar .nav-links li a.active {
+            color: #00ffff;
+        }
+
+        .navbar .logo {
+            height: 50px;
+            /* Logo boyutunu ayarlayın */
+            width: auto;
+        }
+
+        /* Balık Türleri Bölümü */
+        .species {
+            padding: 100px 20px 50px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Yarı saydam bir arka plan ekleyerek daha okunabilir hale getirir */
+            border-radius: 20px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .species-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .species-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .species-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .species-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .species-card h3 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .species-card p {
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: row;
+                /* Navbar öğelerini yatay hizalar */
+                justify-content: space-between;
+                /* Öğeler arasında boşluk bırakır */
+            }
+
+            .navbar .nav-links {
+                flex-direction: row;
+                /* Linkleri yatay sıralar */
+                gap: 10px;
+                padding-left: 0;
+                flex-wrap: wrap;
+                /* Linklerin taşmaması için wrap kullanılır */
+            }
+
+            .navbar .nav-links li a {
+                font-size: 16px;
+                /* Mobilde daha küçük font boyutu */
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
+            <img src="images/hobi balik-Photoroom.png" alt="Logo" class="logo">
             <ul class="nav-links">
-                <li><a href="index.html">Anasayfa</a></li> <!-- Anasayfa Linki -->
-                <li><a href="about.html">Hakkımızda</a></li> <!-- Hakkımızda Linki -->
-                <li><a href="species.html" class="active">Balık Türleri</a></li> <!-- Balık Türleri Linki -->
-                <li><a href="contact.html">İletişim</a></li> <!-- İletişim Linki -->
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="about.html">Hakkımızda</a></li>
+                <li><a href="species.html" class="active">Balık Türleri</a></li>
+                <li><a href="contact.html">İletişim</a></li>
             </ul>
         </div>
     </nav>
@@ -29,73 +187,85 @@
                 <div class="species-card">
                     <img src="images/çupra.png" alt="Çupra" class="species-img">
                     <h3>Çupra</h3>
-                    <p>Çupra, Akdeniz ve Ege Denizi'nin popüler balık türlerinden biridir. Etli ve lezzetli etiyle bilinir. Genellikle ızgara, fırın veya buğulama olarak hazırlanır.</p>
+                    <p>Çupra, Akdeniz ve Ege Denizi'nin popüler balık türlerinden biridir. Etli ve lezzetli etiyle
+                        bilinir. Genellikle ızgara, fırın veya buğulama olarak hazırlanır.</p>
                 </div>
                 <!-- Levrek Kartı -->
                 <div class="species-card">
                     <img src="images/levrek.png" alt="Levrek" class="species-img">
                     <h3>Levrek</h3>
-                    <p>Levrek, denizlerin lezzetli balıklarından biridir. Ege ve Akdeniz'de sıkça bulunur. Lezzetli eti ve sağlıklı özellikleri ile mutfakta çeşitli yemeklerde kullanılır.</p>
+                    <p>Levrek, denizlerin lezzetli balıklarından biridir. Ege ve Akdeniz'de sıkça bulunur. Lezzetli eti
+                        ve sağlıklı özellikleri ile mutfakta çeşitli yemeklerde kullanılır.</p>
                 </div>
                 <!-- Lüfer Kartı -->
                 <div class="species-card">
                     <img src="images/lüfer.png" alt="Lüfer" class="species-img">
                     <h3>Lüfer</h3>
-                    <p>Lüfer, Ege ve Marmara Denizi'nde yaşayan, etli ve yağlı etiyle bilinen bir balıktır. Genellikle ızgara veya buğulama olarak hazırlanır.</p>
+                    <p>Lüfer, Ege ve Marmara Denizi'nde yaşayan, etli ve yağlı etiyle bilinen bir balıktır. Genellikle
+                        ızgara veya buğulama olarak hazırlanır.</p>
                 </div>
                 <!-- Hamsi Kartı -->
                 <div class="species-card">
                     <img src="images/hamsi.jpg" alt="Hamsi" class="species-img">
                     <h3>Hamsi</h3>
-                    <p>Hamsi, Karadeniz'in en popüler balıklarından biridir. Küçük boyutlarına rağmen lezzetli etleriyle bilinir ve kızartma, pilav veya buğulama olarak tüketilebilir.</p>
+                    <p>Hamsi, Karadeniz'in en popüler balıklarından biridir. Küçük boyutlarına rağmen lezzetli etleriyle
+                        bilinir ve kızartma, pilav veya buğulama olarak tüketilebilir.</p>
                 </div>
                 <!-- Kefal Kartı -->
                 <div class="species-card">
                     <img src="images/kefal.png" alt="Kefal" class="species-img">
                     <h3>Kefal</h3>
-                    <p>Kefal, Marmara ve Ege Denizi'nde yaşayan bir balık türüdür. Yağsız et yapısı ile sağlıklı bir besin kaynağıdır ve genellikle fırın ya da buğulama olarak pişirilir.</p>
+                    <p>Kefal, Marmara ve Ege Denizi'nde yaşayan bir balık türüdür. Yağsız et yapısı ile sağlıklı bir
+                        besin kaynağıdır ve genellikle fırın ya da buğulama olarak pişirilir.</p>
                 </div>
                 <!-- Mercan Kartı -->
                 <div class="species-card">
                     <img src="images/mercan.jpg" alt="Mercan" class="species-img">
                     <h3>Mercan</h3>
-                    <p>Mercan, Akdeniz ve Ege Denizi'nde bulunan, genellikle kırmızımsı renkleriyle dikkat çeken bir balık türüdür. Hem estetik olarak hem de tat olarak değerlidir.</p>
+                    <p>Mercan, Akdeniz ve Ege Denizi'nde bulunan, genellikle kırmızımsı renkleriyle dikkat çeken bir
+                        balık türüdür. Hem estetik olarak hem de tat olarak değerlidir.</p>
                 </div>
                 <!-- Kalkan Kartı -->
                 <div class="species-card">
                     <img src="images/kalkan.jpg" alt="Kalkan" class="species-img">
                     <h3>Kalkan</h3>
-                    <p>Kalkan, Akdeniz ve Karadeniz'de bulunan düz ve yuvarlak şekliyle tanınan bir balıktır. Eti oldukça lezzetlidir ve genellikle ızgara veya buğulama olarak pişirilir.</p>
+                    <p>Kalkan, Akdeniz ve Karadeniz'de bulunan düz ve yuvarlak şekliyle tanınan bir balıktır. Eti
+                        oldukça lezzetlidir ve genellikle ızgara veya buğulama olarak pişirilir.</p>
                 </div>
                 <!-- Karagöz Kartı -->
                 <div class="species-card">
                     <img src="images/karagöz.png" alt="Karagöz" class="species-img">
                     <h3>Karagöz</h3>
-                    <p>Karagöz, Akdeniz ve Ege'de yaşayan, etli ve lezzetli bir balık türüdür. Balıkçılar tarafından sıklıkla avlanır ve genellikle kızartma veya buğulama olarak pişirilir.</p>
+                    <p>Karagöz, Akdeniz ve Ege'de yaşayan, etli ve lezzetli bir balık türüdür. Balıkçılar tarafından
+                        sıklıkla avlanır ve genellikle kızartma veya buğulama olarak pişirilir.</p>
                 </div>
                 <!-- İskorpit Kartı -->
                 <div class="species-card">
                     <img src="images/iskorpit.jpg" alt="İskorpit" class="species-img">
                     <h3>İskorpit</h3>
-                    <p>İskorpit, Ege ve Akdeniz'de yaşayan, dikenleriyle ünlü bir balıktır. Etli yapısı nedeniyle değerli bir deniz canlısıdır ve genellikle çorbalarda veya kızartmalarda kullanılır.</p>
+                    <p>İskorpit, Ege ve Akdeniz'de yaşayan, dikenleriyle ünlü bir balıktır. Etli yapısı nedeniyle
+                        değerli bir deniz canlısıdır ve genellikle çorbalarda veya kızartmalarda kullanılır.</p>
                 </div>
                 <!-- Sübye Kartı -->
                 <div class="species-card">
                     <img src="images/subye.jpg" alt="Sübye" class="species-img">
                     <h3>Sübye</h3>
-                    <p>Sübye, mürekkep balığı ailesine ait olup, Akdeniz mutfağında önemli bir yer tutar. Tatlı ve tuzlu yemeklerde kullanılır, özellikle dolma ve kızartma olarak çok tercih edilir.</p>
+                    <p>Sübye, mürekkep balığı ailesine ait olup, Akdeniz mutfağında önemli bir yer tutar. Tatlı ve tuzlu
+                        yemeklerde kullanılır, özellikle dolma ve kızartma olarak çok tercih edilir.</p>
                 </div>
                 <!-- Palamut Kartı -->
                 <div class="species-card">
                     <img src="images/palamut.png" alt="Palamut" class="species-img">
                     <h3>Palamut</h3>
-                    <p>Palamut, Akdeniz ve Ege Denizi'nde bulunan, genellikle güçlü bir yapıya sahip olan bir balıktır. Özellikle ızgara ve fırın yemeklerinde tercih edilir.</p>
+                    <p>Palamut, Akdeniz ve Ege Denizi'nde çok yaygın olarak bulunan, özellikle yaz aylarında tercih
+                        edilen bir balıktır. Etli yapısı ve lezzeti ile öne çıkar.</p>
                 </div>
                 <!-- İstavrit Kartı -->
                 <div class="species-card">
                     <img src="images/istavrit.png" alt="İstavrit" class="species-img">
                     <h3>İstavrit</h3>
-                    <p>İstavrit, Ege ve Marmara Denizi'nde yaygın olan, küçük boyutlarına rağmen lezzetli etleriyle bilinen bir balıktır. Genellikle kızartma veya buğulama olarak hazırlanır.</p>
+                    <p>İstavrit, Ege ve Marmara Denizi'nde yaygın olan, küçük boyutlarına rağmen lezzetli etleriyle
+                        bilinen bir balıktır. Genellikle kızartma veya buğulama olarak hazırlanır.</p>
                 </div>
             </div>
         </div>
@@ -103,10 +273,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Balıkçılık Bilgilendirme | Tüm Hakları Saklıdır</p>
-        </div>
+        <p>&copy; 2024 Balıkçılık ve Balık Türleri. Tüm hakları saklıdır.</p>
     </footer>
 
 </body>
+
 </html>
